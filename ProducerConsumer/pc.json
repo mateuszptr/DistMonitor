@@ -1,0 +1,25 @@
+{
+  "name": "producer_consumer",
+  "hosts": [
+    [
+      "localhost",
+      2137,
+      2138
+    ],
+    [
+      "localhost",
+      2139,
+      2140
+    ],
+    [
+      "localhost",
+      2141,
+      2142
+    ],
+    [
+      "localhost",
+      2143,
+      2144
+    ]
+  ]
+}
