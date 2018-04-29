@@ -57,6 +57,6 @@ int main(int argc, char **argv) {
     while (1) {
         std::string prod = remove(monitor);
         consume(prod);
-        random_sleep();
+        random_sleep(300,1000);
     }
 }

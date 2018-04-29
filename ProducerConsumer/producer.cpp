@@ -61,6 +61,6 @@ int main(int argc, char **argv) {
     while (1) {
         std::string prod = produce(id, sn++);
         emplace(monitor, prod);
-        random_sleep();
+        random_sleep(300,1000);
     }
 }

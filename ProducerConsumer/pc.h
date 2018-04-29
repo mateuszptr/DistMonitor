@@ -14,11 +14,11 @@
 #include <chrono>
 #include <random>
 
-void random_sleep() {
+void random_sleep(int minms, int maxms) {
     using namespace std::chrono;
 
     std::default_random_engine engine;
-    std::uniform_int_distribution<int> distribution(1,1000);
+    std::uniform_int_distribution<int> distribution(minms,maxms);
 
     std::this_thread::sleep_for(milliseconds(distribution(engine)));
 }
