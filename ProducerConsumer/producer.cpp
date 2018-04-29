@@ -56,7 +56,6 @@ int main(int argc, char **argv) {
     DistMonitor &monitor = server.register_monitor(MID, init);
 
     if (init) init_monitor(monitor);
-    //if(init) init_monitor(monitor);
 
     int sn = 0;
     while (1) {
