@@ -11,6 +11,17 @@
 #include <cstdio>
 #include <queue>
 #include <deque>
+#include <chrono>
+#include <random>
+
+void random_sleep() {
+    using namespace std::chrono;
+
+    std::default_random_engine engine;
+    std::uniform_int_distribution<int> distribution(1,1000);
+
+    std::this_thread::sleep_for(milliseconds(distribution(engine)));
+}
 
 void init_monitor(DistMonitor &monitor) {
     monitor.acquire();
