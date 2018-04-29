@@ -9,7 +9,7 @@ cmake .
 make
 ```
 
-Testowane na GCC7, CMake 3.9, ZMQ 4.2.2. 
+Testowane na GCC 7.2, CMake 3.9, ZMQ 4.2.2. Użyto również biblioteki nlohmann/json, dołączono ją do projektu.
 
 ## Uruchomienie przykładu
 
