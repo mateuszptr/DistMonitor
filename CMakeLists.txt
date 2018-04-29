@@ -16,7 +16,9 @@ find_library(ZeroMQ_LIBRARY
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-add_executable(producer ProducerConsumer/producer.cpp ProducerConsumer/pc.h MonitorServer.cpp MonitorServer.h DistMonitor.cpp DistMonitor.h common.h json.hpp)
-target_link_libraries(producer PUBLIC ${ZeroMQ_LIBRARY} Threads::Threads)
-add_executable(consumer ProducerConsumer/consumer.cpp ProducerConsumer/pc.h MonitorServer.cpp MonitorServer.h DistMonitor.cpp DistMonitor.h common.h json.hpp)
-target_link_libraries(consumer PUBLIC ${ZeroMQ_LIBRARY} Threads::Threads)
+add_library(DistMonitor STATIC MonitorServer.cpp MonitorServer.h DistMonitor.cpp DistMonitor.h common.h json.hpp)
+
+add_executable(producer ProducerConsumer/producer.cpp ProducerConsumer/pc.h  json.hpp)
+target_link_libraries(producer PUBLIC ${ZeroMQ_LIBRARY} Threads::Threads DistMonitor)
+add_executable(consumer ProducerConsumer/consumer.cpp ProducerConsumer/pc.h json.hpp)
+target_link_libraries(consumer PUBLIC ${ZeroMQ_LIBRARY} Threads::Threads DistMonitor)
