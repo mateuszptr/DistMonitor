@@ -63,7 +63,7 @@ void MonitorServer::hello_master() {
         sendJSON(basic_message("HELLO"), pub);
         using namespace std::chrono;
 
-        zmq::pollitem_t pollitem = {pull, 0, ZMQ_POLLIN, 0};
+        zmq::pollitem_t pollitem = {(void*)pull, 0, ZMQ_POLLIN, 0};
         milliseconds ms(100);
         while (ms.count() > 0) {
             auto ts1 = system_clock::now();
@@ -121,9 +121,9 @@ void MonitorServer::hello_slave() {
 
 void MonitorServer::poll() {
     zmq::pollitem_t pollitems[] = {
-            {pull,   0, ZMQ_POLLIN, 0},
-            {sub,    0, ZMQ_POLLIN, 0},
-            {inproc, 0, ZMQ_POLLIN, 0}
+            {(void*)pull,   0, ZMQ_POLLIN, 0},
+            {(void*)sub,    0, ZMQ_POLLIN, 0},
+            {(void*)inproc, 0, ZMQ_POLLIN, 0}
     };
 
     bool quit = false;
