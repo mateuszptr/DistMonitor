@@ -1,6 +1,10 @@
 # DistMonitor
 
-Monitor rozproszony używający zmodyfikowanego algorytmu Suzuki-Kasami + przykładowe użycie dla problemu producenta-konsumenta.
+Monitor rozproszony używający zmodyfikowanego (wprowadzenie dodatkowych kolejek dla procesów oczekującyh na zmiennych warunkowych) algorytmu Suzuki-Kasami + przykładowe użycie dla problemu producenta-konsumenta.
+
+Zalety: nadaje priorytet procesom wybudzonym z czekania na zmiennej warunkowej, wiele zmiennych warunkowych
+Wady: jeden proces na jeden serwer
+
 
 ## Kompilacja
 
@@ -9,7 +13,9 @@ cmake .
 make
 ```
 
-Testowane na GCC 7.2, CMake 3.9, ZMQ 4.2.2. Użyto również biblioteki nlohmann/json, dołączono ją do projektu.
+Testowane na (GCC 7.3.1, CMake 3.9, ZMQ 4.2.2, x86_64) oraz (GCC 7.2.0, CMake 3.7.2, ZMQ 4.2.1, arm)
+ 
+ Użyto również biblioteki nlohmann/json (do serializacji współdzielonych danych i samych wiadomości), dołączono ją do projektu.
 
 ## Uruchomienie przykładu
 
@@ -37,3 +43,4 @@ Dla hosta 192.168.0.14:
 ./producer 2 false
 ./consumer 3 false
 ```
+
