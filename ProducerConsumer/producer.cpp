@@ -14,7 +14,7 @@ const MonitorId MID = 1337;
 
 std::string produce(int id, int sn) {
     std::string prod = std::to_string(id) + "_" + std::to_string(sn);
-    //std::cout << "Produkuję: " << prod << std::endl;
+    std::cout << "Produkuję: " << prod << std::endl;
 
     return prod;
 }
@@ -41,7 +41,7 @@ void emplace(DistMonitor &monitor, const std::string &prod) {
         data["buffer"] = nlohmann::json(q);
 
         monitor.setData(data);
-        std::cout << data.dump() << std::endl;
+        //std::cout << data.dump() << std::endl;
 
     }
     monitor.release();

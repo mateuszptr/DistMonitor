@@ -40,8 +40,8 @@ void DistMonitor::recv_token(const nlohmann::json &j) {
 
     cv->notify_one();
 
-    std::cout << "Got token: " << j["token"].dump() << std::endl;
-    std::cout << "With data: " << j["data"].dump() << std::endl;
+    //std::cout << "Got token: " << j["token"].dump() << std::endl;
+    //std::cout << "With data: " << j["data"].dump() << std::endl;
 }
 
 
@@ -81,7 +81,7 @@ void DistMonitor::pass_token(ServerId rid) {
 
     sendJSON(j, *socket);
 
-    std::cout << "Sent token " << j["token"].dump() << " to " << rid << std::endl;
+    //std::cout << "Sent token " << j["token"].dump() << " to " << rid << std::endl;
 }
 
 void DistMonitor::send_request() {
@@ -91,7 +91,7 @@ void DistMonitor::send_request() {
     j["sn"] = ++rn[host_id];
 
     sendJSON(j, *socket);
-    std::cout << "Broadcasted Request" << std::endl;
+    //std::cout << "Broadcasted Request" << std::endl;
 }
 
 void DistMonitor::acquire() {
@@ -244,7 +244,7 @@ void DistMonitor::wait(Cond cond) {
         pass_token(rid);
     }
 
-    std::cout << "Waiting: " << j.dump() << std::endl;
+    //std::cout << "Waiting: " << j.dump() << std::endl;
     do {
         cv->wait(ulock);
     } while (!validToken);

@@ -11,7 +11,7 @@ const char *EMPTY_COND = "EMPTY";
 const MonitorId MID = 1337;
 
 void consume(const std::string &prod) {
-    //std::cout << "Konsumuję: " << prod << std::endl;
+    std::cout << "Konsumuję: " << prod << std::endl;
 }
 
 std::string remove(DistMonitor &monitor) {
@@ -32,7 +32,7 @@ std::string remove(DistMonitor &monitor) {
     q.pop_front();
     monitor.notifyAll(FULL_COND);
 
-    std::cout << data.dump() << std::endl;
+    //std::cout << data.dump() << std::endl;
     data.clear();
     data["buffer"] = q;
 
@@ -57,6 +57,6 @@ int main(int argc, char **argv) {
     while (1) {
         std::string prod = remove(monitor);
         consume(prod);
-        //zmq_sleep(1);
+        zmq_sleep(1);
     }
 }
