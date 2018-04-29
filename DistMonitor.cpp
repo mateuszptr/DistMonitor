@@ -49,7 +49,7 @@ void DistMonitor::request_token(const nlohmann::json &j) {
     std::unique_lock<std::mutex> ulock(*mtx);
 
     ServerId rid = j["host_id"];
-    std::cout << "Got Request from" << rid << std::endl;
+    //std::cout << "Got Request from" << rid << std::endl;
     rn[rid] = std::max(rn[rid], j["sn"].get<RequestNo>());
     if (validToken && !processingCS && !wantCS && rn[rid] == token.ln[rid] + 1) {
         pass_token(rid);
