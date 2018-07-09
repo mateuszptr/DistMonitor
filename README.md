@@ -2,9 +2,6 @@
 
 Monitor rozproszony używający zmodyfikowanego (wprowadzenie dodatkowych kolejek dla procesów oczekującyh na zmiennych warunkowych) algorytmu Suzuki-Kasami + przykładowe użycie dla problemu producenta-konsumenta.
 
-Zalety: nadaje priorytet procesom wybudzonym z czekania na zmiennej warunkowej, wiele zmiennych warunkowych
-Wady: jeden proces na jeden serwer
-
 
 ## Kompilacja
 
