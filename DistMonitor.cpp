@@ -181,7 +181,8 @@ void DistMonitor::invoke_notify() {
             auto iter = std::find(token.queue.begin(), token.queue.end(), id);
             assert(iter == token.queue.end());
             //token.queue.erase(iter);
-            token.queue.push_front(id);
+            //token.queue.push_front(id);
+            token.queue.push_back(id);
         }
     }
 }
@@ -199,7 +200,8 @@ void DistMonitor::invoke_notifyAll() {
             auto iter = std::find(token.queue.begin(), token.queue.end(), id);
             assert(iter == token.queue.end());
             //token.queue.erase(iter);
-            token.queue.push_front(id);
+            //token.queue.push_front(id);
+            token.queue.push_back(id);
         }
     }
 }
